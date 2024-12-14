@@ -1,6 +1,3 @@
--- Reload config
-vim.keymap.set('n', '<leader><leader>r', ':source $HOME/AppData/Local/nvim/init.lua<CR>')
-
 -- Split windows
 vim.keymap.set('n', '<leader>sv', '<C-w>v') -- Split window vertically
 vim.keymap.set('n', '<leader>sh', '<C-w>s') -- Split window horizontally
