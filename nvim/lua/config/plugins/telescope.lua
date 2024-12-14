@@ -13,10 +13,13 @@ return {
     local builtin = require('telescope.builtin')
 
     telescope.setup({
-      pickers = {
-        find_files = {
-          hidden = true,
+      defaults = {
+        layout_config = {
+          horizontal = { preview_width = 0.45 },
         },
+      },
+      pickers = {
+        find_files = { hidden = true },
       },
       extensions = {
         fzf = {
@@ -30,11 +33,22 @@ return {
 
     telescope.load_extension('fzf')
 
-    vim.keymap.set('n', '<leader>ff', builtin.find_files)
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+
+    -- Edit neovim config
+    vim.keymap.set('n', '<leader>nc', function()
+      builtin.find_files({
+        cwd = vim.fn.stdpath('config'),
+      })
+    end)
+
+    vim.keymap.set('n', '<C-a>', builtin.find_files)
+    vim.keymap.set('n', '<C-g>', builtin.git_files)
     vim.keymap.set('n', '<leader>fs', builtin.live_grep)
-    vim.keymap.set('n', '<leader>fd', function()
+    vim.keymap.set('n', '<leader>fw', builtin.grep_string)
+    vim.keymap.set('n', '<leader>sd', function()
       builtin.diagnostics({ bufnr = 0 })
     end)
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+    vim.keymap.set('n', '<leader>cc', builtin.colorscheme)
   end,
 }

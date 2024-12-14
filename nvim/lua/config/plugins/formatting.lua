@@ -9,23 +9,16 @@ return {
         lua = { 'stylua' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
         html = { 'prettier' },
         css = { 'prettier' },
+        go = { 'goimports', 'golines' },
         json = { 'prettier' },
       },
       format_on_save = {
         lsp_format = 'fallback',
         timeout_ms = 500,
+        quiet = true,
       },
     })
-
-    vim.keymap.set('n', '<leader>f', function()
-      conform.format({
-        lsp_format = 'fallback',
-        timeout_ms = 500,
-      })
-    end)
   end,
 }

@@ -1,9 +1,16 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+	local tab, pane, window = mux.spawn_window({})
+	window:gui_window():toggle_fullscreen()
+end)
+
+config.default_prog = { "pwsh.exe", "-NoLogo" }
 
 config.window_close_confirmation = "NeverPrompt"
 
--- config.window_decorations = 'RESIZE'
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -12,15 +19,15 @@ config.window_padding = {
 }
 
 config.colors = {
+	background = "#111111",
 	cursor_bg = "#ffffff",
 }
 
-config.font_size = 20
+config.font_size = 17
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 
 config.enable_scroll_bar = false
 
 config.tab_bar_at_bottom = true
-config.use_fancy_tab_bar = false
 
 return config
