@@ -1,7 +1,5 @@
 vim.g.mapleader = ' '
 
-vim.opt.guicursor = ''
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -26,3 +24,5 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 
 vim.opt.laststatus = 3
+
+vim.opt.showmode = false

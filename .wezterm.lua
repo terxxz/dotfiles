@@ -23,7 +23,6 @@ config.window_padding = {
 
 config.colors = {
 	background = "#111111",
-	cursor_bg = "#ffffff",
 }
 
 config.font_size = 17
