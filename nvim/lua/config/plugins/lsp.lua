@@ -44,11 +44,9 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         'lua_ls',
-        'ts_ls',
         'gopls',
         'html',
         'emmet_ls',
-        'cssls',
       },
       handlers = {
         function(server_name)
@@ -76,7 +74,7 @@ return {
         'stylua',
         'prettier',
         'goimports',
-        'golines',
+        'gofumpt',
       },
     })
 

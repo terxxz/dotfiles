@@ -23,11 +23,12 @@ config.window_padding = {
 
 config.colors = {
 	background = "#111111",
-	cursor_bg = "#ffffff",
 }
 
 config.font_size = 17
 config.font = wezterm.font("JetBrainsMono Nerd Font")
+
+config.cursor_thickness = "2px"
 
 config.enable_tab_bar = false
 config.enable_scroll_bar = false
