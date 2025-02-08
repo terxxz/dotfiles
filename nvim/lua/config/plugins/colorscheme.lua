@@ -8,6 +8,11 @@ return {
       styles = {
         keywords = { italic = false },
       },
+      on_colors = function(colors)
+        colors.bg = '#111111'
+        colors.bg_statusline = '#111111'
+        colors.fg_gutter = '#444444'
+      end,
       on_highlights = function(highlights, _)
         highlights.DiagnosticVirtualTextError = {
           bg = nil,
