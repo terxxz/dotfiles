@@ -5,6 +5,15 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    {
+      'folke/lazydev.nvim',
+      ft = 'lua',
+      opts = {
+        library = {
+          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        },
+      },
+    },
   },
   config = function()
     local mason = require('mason')
@@ -16,8 +25,12 @@ return {
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('user-lsp-attach', {}),
       callback = function()
-        vim.keymap.set('n', 'gn', vim.diagnostic.goto_next, { buffer = 0 })
-        vim.keymap.set('n', 'gp', vim.diagnostic.goto_prev, { buffer = 0 })
+        vim.keymap.set('n', 'gn', function()
+          vim.diagnostic.jump({ count = 1, float = true })
+        end, { buffer = 0 })
+        vim.keymap.set('n', 'gp', function()
+          vim.diagnostic.jump({ count = -1, float = true })
+        end, { buffer = 0 })
 
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = 0 })
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = 0 })
@@ -45,6 +58,7 @@ return {
       ensure_installed = {
         'lua_ls',
         'gopls',
+        'ts_ls',
         'html',
         'emmet_ls',
       },
@@ -54,32 +68,24 @@ return {
             capabilities = capabilities,
           })
         end,
-        ['lua_ls'] = function()
-          lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                diagnostics = {
-                  globals = { 'vim' },
-                },
-              },
-            },
-          })
-        end,
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         'stylua',
-        'prettier',
         'goimports',
         'gofumpt',
+        'prettier',
       },
     })
 
     vim.diagnostic.config({
+      virtual_text = true,
       severity_sort = true,
+      float = {
+        border = 'rounded',
+      },
     })
   end,
 }

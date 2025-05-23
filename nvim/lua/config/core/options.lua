@@ -10,6 +10,8 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+vim.opt.termguicolors = true
+
 vim.opt.wrap = false
 
 vim.opt.scrolloff = 8

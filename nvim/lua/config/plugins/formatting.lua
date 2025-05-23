@@ -7,6 +7,7 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'goimports', 'gofumpt' },
+        html = { 'prettier' },
         json = { 'prettier' },
       },
       format_on_save = {

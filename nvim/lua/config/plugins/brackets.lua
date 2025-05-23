@@ -4,8 +4,8 @@ return {
     version = '*',
     opts = {},
   },
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   opts = {},
-  -- },
+  {
+    'windwp/nvim-autopairs',
+    opts = {},
+  },
 }

@@ -1,37 +1,41 @@
 return {
-  'folke/tokyonight.nvim',
-  lazy = false,
-  priority = 1000,
+  'vague2k/vague.nvim',
   config = function()
-    require('tokyonight').setup({
-      style = 'night',
-      styles = {
-        keywords = { italic = false },
+    require('vague').setup({
+      style = {
+        boolean = 'none',
+        number = 'none',
+        float = 'none',
+        error = 'none',
+        comments = 'none',
+        conditionals = 'none',
+        functions = 'none',
+        headings = 'none',
+        operators = 'none',
+        strings = 'none',
+        variables = 'none',
+
+        -- keywords
+        keywords = 'none',
+        keyword_return = 'none',
+        keywords_loop = 'none',
+        keywords_label = 'none',
+        keywords_exception = 'none',
+
+        -- builtin
+        builtin_constants = 'none',
+        builtin_functions = 'none',
+        builtin_types = 'none',
+        builtin_variables = 'none',
       },
-      on_colors = function(colors)
-        colors.bg = '#111111'
-        colors.bg_statusline = '#111111'
-        colors.fg_gutter = '#444444'
-      end,
-      on_highlights = function(highlights, _)
-        highlights.DiagnosticVirtualTextError = {
-          bg = nil,
-          fg = '#db4b4b',
-        }
-        highlights.DiagnosticVirtualTextHint = {
-          bg = nil,
-          fg = '#1abc9c',
-        }
-        highlights.DiagnosticVirtualTextInfo = {
-          bg = nil,
-          fg = '#0db9d7',
-        }
-        highlights.DiagnosticVirtualTextWarn = {
-          bg = nil,
-          fg = '#e0af68',
-        }
-      end,
+
+      -- Override colors
+      colors = {
+        bg = '#111111',
+      },
     })
-    vim.cmd.colorscheme('tokyonight')
+
+    vim.cmd.colorscheme('vague')
+    vim.cmd(':hi statusline guibg=\'NONE\'')
   end,
 }

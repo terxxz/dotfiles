@@ -2,9 +2,10 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 
-wezterm.on("gui-startup", function()
-	local tab, pane, window = mux.spawn_window({})
-	window:gui_window():toggle_fullscreen()
+wezterm.on("gui-startup", function(window)
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	local gui_window = window:gui_window()
+	gui_window:perform_action(wezterm.action.ToggleFullScreen, pane)
 end)
 
 -- This is for powershell
@@ -23,6 +24,7 @@ config.window_padding = {
 
 config.colors = {
 	background = "#111111",
+	cursor_bg = "#fff",
 }
 
 config.font_size = 17
