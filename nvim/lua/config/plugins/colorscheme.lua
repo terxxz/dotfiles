@@ -15,27 +15,34 @@ return {
         strings = 'none',
         variables = 'none',
 
-        -- keywords
         keywords = 'none',
         keyword_return = 'none',
         keywords_loop = 'none',
         keywords_label = 'none',
         keywords_exception = 'none',
 
-        -- builtin
         builtin_constants = 'none',
         builtin_functions = 'none',
         builtin_types = 'none',
         builtin_variables = 'none',
       },
 
-      -- Override colors
-      colors = {
-        bg = '#111111',
+      plugins = {
+        lsp = {
+          diagnostic_error = 'bold',
+          diagnostic_hint = 'bold',
+          diagnostic_info = 'bold',
+          diagnostic_warn = 'bold',
+        },
       },
+
+      on_highlights = function(highlights, _)
+        highlights.StatusLine = { bg = '' }
+        highlights.NormalFloat = { bg = '#090909' }
+        highlights.BlinkCmpMenu = { bg = '#090909' }
+      end,
     })
 
     vim.cmd.colorscheme('vague')
-    vim.cmd(':hi statusline guibg=\'NONE\'')
   end,
 }

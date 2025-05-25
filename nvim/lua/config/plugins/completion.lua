@@ -8,9 +8,6 @@ return {
       nerd_font_variant = 'normal',
     },
     completion = {
-      menu = {
-        border = 'rounded',
-      },
       trigger = {
         show_on_insert_on_trigger_character = false,
       },
@@ -18,7 +15,6 @@ return {
         auto_show = true,
         auto_show_delay_ms = 0,
         window = {
-          border = 'rounded',
           direction_priority = {
             menu_north = { 'e' },
             menu_south = { 'e' },

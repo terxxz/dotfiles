@@ -62,7 +62,7 @@ return {
         'html',
         'emmet_ls',
       },
-      handlers = {
+      handler = {
         function(server_name)
           lspconfig[server_name].setup({
             capabilities = capabilities,
@@ -84,7 +84,7 @@ return {
       virtual_text = true,
       severity_sort = true,
       float = {
-        border = 'rounded',
+        focusable = false,
       },
     })
   end,
