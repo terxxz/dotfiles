@@ -8,6 +8,14 @@ wezterm.on("gui-startup", function(window)
 	gui_window:perform_action(wezterm.action.ToggleFullScreen, pane)
 end)
 
+config.keys = {
+	{
+		key = "q",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.QuitApplication,
+	},
+}
+
 -- This is for powershell
 -- config.default_prog = { "pwsh.exe", "-NoLogo" }
 
@@ -23,7 +31,7 @@ config.window_padding = {
 }
 
 config.colors = {
-	background = "#111111",
+	background = "#141415",
 	cursor_bg = "#fff",
 }
 

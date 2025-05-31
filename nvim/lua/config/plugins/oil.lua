@@ -7,7 +7,9 @@ return {
         ['<C-h>'] = false,
         ['<C-p>'] = false,
       },
-      view_options = { show_hidden = true },
+      view_options = {
+        show_hidden = true,
+      },
     })
 
     vim.keymap.set('n', '-', ':Oil<CR>')

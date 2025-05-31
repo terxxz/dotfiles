@@ -16,8 +16,9 @@ return {
         'markdown_inline',
       },
       auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
+      highlight = {
+        enable = true,
+      },
     })
   end,
 }

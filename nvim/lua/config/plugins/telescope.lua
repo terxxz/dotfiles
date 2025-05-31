@@ -14,20 +14,25 @@ return {
 
     telescope.setup({
       defaults = {
+        hidden_files = true,
         layout_config = {
-          horizontal = { preview_width = 0.48 },
+          vertical = {
+            preview = false,
+            prompt_position = 'top',
+            width = 0.65,
+            height = 0.65,
+          },
+          horizontal = {
+            preview_width = 0.5,
+          },
         },
       },
       pickers = {
-        find_files = { hidden = true },
+        find_files = { layout_strategy = 'vertical' },
+        git_files = { layout_strategy = 'vertical' },
       },
       extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = 'smart_case',
-        },
+        fzf = {},
       },
     })
 
