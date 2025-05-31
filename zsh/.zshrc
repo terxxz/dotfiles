@@ -16,10 +16,11 @@ ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=none
 ZSH_HIGHLIGHT_STYLES[precommand]=none
 
-bindkey '^y' autosuggest-accept
+bindkey "^y" autosuggest-accept
 
 source $ZSH/oh-my-zsh.sh
 
+export FZF_DEFAULT_COMMAND="find . -type f"
 export FZF_DEFAULT_OPTS="
 --layout=reverse
 --pointer='█'
@@ -49,4 +50,3 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
